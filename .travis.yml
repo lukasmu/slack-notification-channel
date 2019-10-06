@@ -3,22 +3,18 @@ language: php
 sudo: false
 
 php:
-  - 7.1
   - 7.2
   - 7.3
 
 env:
   matrix:
-    - LARAVEL=5.8.*
-    - LARAVEL=dev-master
+    - LARAVEL=^6.0
+    - LARAVEL=^7.0
 
 matrix:
   fast_finish: true
-  exclude:
-    - php: 7.1
-      env: LARAVEL=dev-master
   allow_failures:
-    - env: LARAVEL=dev-master
+    - env: LARAVEL=^7.0
 
 before_install:
   - phpenv config-rm xdebug.ini || true
